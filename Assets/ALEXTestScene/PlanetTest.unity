@@ -519,6 +519,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateMoveSpeed: 10
   rotateTurnSpeed: 45
+--- !u!1 &1803491877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803491878}
+  - component: {fileID: 1803491879}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803491878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803491877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803491879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803491877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd81f6f4c7db4e938efc7da4acc9f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTimer: 30
+  gameProcess: 0
 --- !u!1 &1915526344
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +571,7 @@ GameObject:
   - component: {fileID: 1915526347}
   - component: {fileID: 1915526346}
   - component: {fileID: 1915526345}
+  - component: {fileID: 1915526348}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -596,3 +639,17 @@ Transform:
   m_Father: {fileID: 379799751}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1915526348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915526344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0c0f6e5c6a742828c9c10facba8742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  mouseX: 0
+  mouseY: 0

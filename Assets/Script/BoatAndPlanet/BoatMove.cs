@@ -16,15 +16,18 @@ public class BoatMove : MonoBehaviour
         }
     }
 
-    void Awake () 
+    void Awake ()
     {
-		
-	}
+        instance = this;
+    }
 	
-	void Update () 
+	void Update ()
     {
-        h = Input.GetAxis("Horizontal") * Time.deltaTime;
-        v = Input.GetAxis("Vertical") * Time.deltaTime;
-        PlanetRotate.Instance.RotatePlanet(h, v);
+        if (PlanetBoatLevelManager.Instance.gameProcess == EGameProcess.PROCEED)
+        {
+            h = Input.GetAxis("Horizontal") * Time.deltaTime;
+            v = Input.GetAxis("Vertical") * Time.deltaTime;
+            PlanetRotate.Instance.RotatePlanet(h, v);
+        }
     }
 }

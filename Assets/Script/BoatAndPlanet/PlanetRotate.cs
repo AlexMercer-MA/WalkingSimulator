@@ -16,7 +16,6 @@ public class PlanetRotate : MonoBehaviour
     void Awake () 
     {
         instance = this;
-
     }
     
     public float rotateMoveSpeed;
