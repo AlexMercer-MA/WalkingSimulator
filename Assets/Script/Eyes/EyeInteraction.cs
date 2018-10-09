@@ -76,8 +76,8 @@ public class EyeInteraction : MonoBehaviour {
     
     void OpenAction(int phaseCount)
     {
-        eyelidUp.transform.rotation = Quaternion.Euler(-maxOpenAngle, 180 - this.transform.rotation.y, this.transform.rotation.z);
-        eyelidDown.transform.rotation = Quaternion.Euler(maxOpenAngle, 180 + this.transform.rotation.y, this.transform.rotation.z);
+        eyelidUp.transform.localRotation = Quaternion.Euler(-maxOpenAngle, 180 - this.transform.rotation.y, this.transform.rotation.z);
+        eyelidDown.transform.localRotation = Quaternion.Euler(maxOpenAngle, 180 + this.transform.rotation.y, this.transform.rotation.z);
     }
 }
 

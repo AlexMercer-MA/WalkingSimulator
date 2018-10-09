@@ -25,6 +25,9 @@ public class PlayerIntetaction : MonoBehaviour
             case "Eye":
                 targetObject.GetComponent<EyeInteraction>().BeenClicked();
                 break;
+            case "EyeGame":
+                targetObject.GetComponent<EyeGameUnit>().BeenClicked();
+                break;
             default:
                 break;
         }
