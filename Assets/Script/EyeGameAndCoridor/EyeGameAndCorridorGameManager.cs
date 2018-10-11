@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyeGameAndCoridorGameManager : MonoBehaviour {
+public class EyeGameAndCorridorGameManager : MonoBehaviour {
 
-    private static EyeGameAndCoridorGameManager instance;
-    public static EyeGameAndCoridorGameManager Instance
+    private static EyeGameAndCorridorGameManager instance;
+    public static EyeGameAndCorridorGameManager Instance
     {
         get
         {
@@ -13,24 +13,44 @@ public class EyeGameAndCoridorGameManager : MonoBehaviour {
         }
     }
 
-    public EEyeGameAndCoridorGameProcess gameProcess = EEyeGameAndCoridorGameProcess.PREPARE;
+    public EEyeGameAndCorridorGameProcess gameProcess;
+    int wallFinished = 0;
 
     void Awake()
     {
         instance = this;
+        gameProcess = EEyeGameAndCorridorGameProcess.PREPARE;
     }
 
-    void Update()
+    void SetWallFinished()
     {
+        wallFinished++;
+    }
+
+    void CheckEyeGameFinished()
+    {
+        if (wallFinished >= 3)
+        {
+            gameProcess = EEyeGameAndCorridorGameProcess.STAGE_CORRIDOR;
+            InitializeStageCorridor();
+        }
+    }
+
+    void InitializeStageCorridor()
+    {
+        //Open the door
+
+        //Set People without eyes and the walking audios
 
     }
+
 }
 
-public enum EEyeGameAndCoridorGameProcess
+public enum EEyeGameAndCorridorGameProcess
 {
     PREPARE,
     STAGE_EYEGAME,      //Stage1
-    STAGE_CORIDOR,      //Stage2
+    STAGE_CORRIDOR,      //Stage2
     STAGE_LIGHTCHASE,   //Stage3
     END,
 }
