@@ -142,8 +142,9 @@ GameObject:
   - component: {fileID: 309313553}
   - component: {fileID: 309313552}
   - component: {fileID: 309313551}
+  - component: {fileID: 309313554}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Sphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,6 +217,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309313549}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &309313554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309313549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b558d6df92c04812ba0ffb948f71963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &379799750
 Prefab:
   m_ObjectHideFlags: 0
@@ -259,6 +271,14 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -0.17
       objectReference: {fileID: 0}
+    - target: {fileID: 419722, guid: 93466df78c8716e4b862b3630d4458f6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 419722, guid: 93466df78c8716e4b862b3630d4458f6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93466df78c8716e4b862b3630d4458f6, type: 2}
   m_IsPrefabAsset: 0
@@ -267,6 +287,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 448458, guid: 93466df78c8716e4b862b3630d4458f6,
     type: 2}
   m_PrefabInternal: {fileID: 379799750}
+--- !u!1 &379799752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149896, guid: 93466df78c8716e4b862b3630d4458f6,
+    type: 2}
+  m_PrefabInternal: {fileID: 379799750}
+--- !u!64 &379799753
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379799752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: bbc81424dfd9ac148bce892701320703, type: 3}
 --- !u!1 &1094014922
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,8 +317,9 @@ GameObject:
   - component: {fileID: 1094014926}
   - component: {fileID: 1094014925}
   - component: {fileID: 1094014924}
+  - component: {fileID: 1094014927}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Sphere2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +392,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1094014922}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1094014927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1094014922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b558d6df92c04812ba0ffb948f71963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1184239791
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +480,7 @@ GameObject:
   - component: {fileID: 1468246942}
   - component: {fileID: 1468246941}
   - component: {fileID: 1468246940}
+  - component: {fileID: 1468246945}
   - component: {fileID: 1468246944}
   m_Layer: 0
   m_Name: Planet
@@ -517,8 +569,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778c765343f944679950cc7a3c6fdd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: 20
   rotateMoveSpeed: 10
   rotateTurnSpeed: 45
+--- !u!54 &1468246945
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468246939}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.25
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 2
+  m_Constraints: 14
+  m_CollisionDetection: 2
 --- !u!1 &1803491877
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +597,7 @@ GameObject:
   - component: {fileID: 1803491878}
   - component: {fileID: 1803491879}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: PlanetBoatLevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd81f6f4c7db4e938efc7da4acc9f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 30
+  gameTimer: 999
   gameProcess: 0
 --- !u!1 &1915526344
 GameObject:

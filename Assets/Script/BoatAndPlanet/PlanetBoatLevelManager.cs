@@ -30,6 +30,7 @@ public class PlanetBoatLevelManager : MonoBehaviour
     IEnumerator LevelCountDown(float timeCountDown)
     {
         yield return new WaitForSeconds(timeCountDown);
+        Debug.LogWarning("Level Over");
         gameProcess = EGameProcess.END;
 
         //TODO Do Something
