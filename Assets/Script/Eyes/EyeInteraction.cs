@@ -10,26 +10,23 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class EyeInteraction : MonoBehaviour {
 
-    //public CloseInfo[] phaseInfo;
-    public GameObject eyelidUp;
-    public GameObject eyelidDown;
     public float maxOpenAngle = 40f;
-    public float openSpeed;
-    public float closeSpeed;
-    public bool eyeClosed;
-    private float waitForSeconds=0;
+    public float openLerpSpeed = 0.02f;
+    public float closeAngleSpeed = 20f;
+    public float angleDegLimit = 2f;
 
-   // int phase = 0;
-    int clickedCount = 0;
-    int requireCount = 0;
+    private GameObject eyelidUp;
+    private GameObject eyelidDown;
+    private bool eyeClosed;
+    private float waitForSeconds = 0;
     private bool open = false;
     private bool close = false;
     
     void Start ()
     {
-        //PhaseStart(0);
         eyelidUp = this.transform.Find("EyelidlUp").gameObject;
         eyelidDown = this.transform.Find("EyelidlDown").gameObject;
+        open = true;
     }
 
     void Update()
@@ -37,108 +34,49 @@ public class EyeInteraction : MonoBehaviour {
         //This place can change if the range of the eyelids are changed
         if (close)
         {
-            eyelidUp.transform.rotation = Quaternion.Euler(this.transform.rotation.x + (closeSpeed * Time.deltaTime), 180 - this.transform.rotation.y, this.transform.rotation.z);
-            eyelidDown.transform.rotation = Quaternion.Euler(this.transform.rotation.x - (closeSpeed * Time.deltaTime), 180 - this.transform.rotation.y, this.transform.rotation.z);
-            Debug.Log(closeSpeed * Time.deltaTime );
-            if ( eyelidDown.transform.rotation.x< 2)
+            eyelidUp.transform.rotation = Quaternion.Euler(eyelidUp.transform.rotation.eulerAngles.x + (closeAngleSpeed * Time.deltaTime), eyelidUp.transform.rotation.eulerAngles.y, eyelidUp.transform.rotation.eulerAngles.z);
+            eyelidDown.transform.rotation = Quaternion.Euler(eyelidDown.transform.rotation.eulerAngles.x - (closeAngleSpeed * Time.deltaTime), eyelidDown.transform.rotation.eulerAngles.y, eyelidDown.transform.rotation.eulerAngles.z);
+
+            if (eyelidDown.transform.rotation.eulerAngles.x < angleDegLimit)
             {
                 close = false;
                 waitForSeconds = waitForSeconds + 0.5f;
+                StartCoroutine(EyeOpenCountdownNew(waitForSeconds));
             }
         }
-        else
+        else if (open)
         {
-            /*if (open)
+            float angle;
+            angle = Mathf.Lerp(eyelidDown.transform.rotation.eulerAngles.x, maxOpenAngle, openLerpSpeed);
+            eyelidUp.transform.rotation = Quaternion.Euler(-angle, eyelidUp.transform.rotation.eulerAngles.y, eyelidUp.transform.rotation.eulerAngles.z);
+            eyelidDown.transform.rotation = Quaternion.Euler(angle, eyelidDown.transform.rotation.eulerAngles.y, eyelidDown.transform.rotation.eulerAngles.z);
+
+            if ((maxOpenAngle - angle) % 360 < angleDegLimit)
             {
-                float a;
-                a = Mathf.Lerp(eyelidDown.transform.rotation.x, maxOpenAngle, openSpeed);
-                eyelidUp.transform.rotation = Quaternion.Euler(-a, 180 - this.transform.rotation.y, this.transform.rotation.z);
-                eyelidDown.transform.rotation = Quaternion.Euler(a, 180 - this.transform.rotation.y, this.transform.rotation.z);
-                if (maxOpenAngle - a < 2)
-                {
-                    open = false;
-                }
+                open = false;
             }
-            */
         }
 
-        if (eyelidDown.transform.rotation.x < 2)
-        {
-            eyeClosed = true;
-        }
-        else
-        {
-            eyeClosed = false;
-        }
+        eyeClosed = eyelidDown.transform.rotation.eulerAngles.x < angleDegLimit ? true : false;
     }
 
     //Call by player's input
     public void BeenClicked()
     {
-        //CloseAction();
-        close = true;
-        StartCoroutine(EyeOpenCountdownNew(waitForSeconds));
-    }
-
-    /*
-    public void CloseAction()
-    {
-        eyelidUp.transform.rotation = Quaternion.Euler(0, 180 - this.transform.rotation.y, this.transform.rotation.z);
-        eyelidDown.transform.rotation = Quaternion.Euler(0, 180 - this.transform.rotation.y, this.transform.rotation.z);
-        if (phase < phaseInfo.Length - 1)
+        if (open)
         {
-            phase++;
-            PhaseStart(phase);
+            return;
         }
         else
         {
-            //TODO SCENE OVER
-            //TODO SCENE OVER
-            //TODO SCENE OVER
-            //GameManager LevelProgress++；
+            close = true;
         }
     }
-    
-    //Call when a new phase is start
-    void PhaseStart(int newPhaseCount)
-    {
-        if (newPhaseCount > phaseInfo.Length - 1)
-        {
-            throw new Exception("Eye Close Phase is over limit");
-        }
-        phase = newPhaseCount;
-        clickedCount = 0;
-        requireCount = phaseInfo[newPhaseCount].clickCount;
 
-        StartCoroutine(EyeOpenCountdown(newPhaseCount));
-    }
-    
-    IEnumerator EyeOpenCountdown(int phaseCount) //Next phase count
+    IEnumerator EyeOpenCountdownNew(float waitSeconds) //Next phase
     {
-        if (phaseCount > phaseInfo.Length - 1)
-        {
-            throw new Exception("Eye Close Phase is over limit");
-        }
-        yield return new WaitForSeconds(phaseInfo[phaseCount].nextOpenDelay);
-        OpenAction(phaseCount);
-    }*/
-    
-        IEnumerator EyeOpenCountdownNew(float waitSeconds) //Next phase count
-    {
-        /*if (phaseCount > phaseInfo.Length - 1)
-        {
-            throw new Exception("Eye Close Phase is over limit");
-        }
-        */
         yield return new WaitForSeconds(waitSeconds);
         open = true;
-    }
-    
-    void OpenAction(int phaseCount)
-    {
-        eyelidUp.transform.rotation = Quaternion.Euler(-maxOpenAngle, 180 - this.transform.rotation.y, this.transform.rotation.z);
-        eyelidDown.transform.rotation = Quaternion.Euler(maxOpenAngle, 180 + this.transform.rotation.y, this.transform.rotation.z);
-        
     }
 }
 

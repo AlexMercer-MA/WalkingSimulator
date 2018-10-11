@@ -25,7 +25,6 @@ public class PlayerInput : MonoBehaviour {
             if(Physics.Raycast(ray, out hit, interactionDistance, layerMask))
             {
                 targetObject = hit.transform.gameObject;
-                Debug.Log(targetObject.name);
             }
 
             if (targetObject)

@@ -177,7 +177,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &286239425
 Prefab:
@@ -217,6 +217,16 @@ Prefab:
     - target: {fileID: 4089508117251486, guid: 9b52fed109dba43828725f83da63ab88, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224674610007399802, guid: 9b52fed109dba43828725f83da63ab88,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224876185407113918, guid: 9b52fed109dba43828725f83da63ab88,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b52fed109dba43828725f83da63ab88, type: 2}
@@ -305,6 +315,26 @@ Prefab:
     - target: {fileID: 1038371410075008, guid: 6ce34ee030042544695a5461509a43fd, type: 2}
       propertyPath: m_Name
       value: EyeRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: openSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: closeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: angleDegLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: closeAngleSpeed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce34ee030042544695a5461509a43fd, type: 2}
@@ -418,6 +448,26 @@ Prefab:
     - target: {fileID: 1038371410075008, guid: 6ce34ee030042544695a5461509a43fd, type: 2}
       propertyPath: m_Name
       value: EyeLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: openSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: closeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: angleDegLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967477206446846, guid: 6ce34ee030042544695a5461509a43fd,
+        type: 2}
+      propertyPath: closeAngleSpeed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ce34ee030042544695a5461509a43fd, type: 2}
